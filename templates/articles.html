@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% from "includes/formhelpers.html" import render_field %} <!-- formu dahil etmemiz için formhelpers'ı dahil ettik. -->
+<h3>Makaleler</h3>
+<hr>
+
+{% if articles  %}
+<form action="/search" method="post"><!-- bootstrap 4 search -->
+    <div class="input-group">
+        <input type="search" name="keyword" class=" rounded" placeholder="Ara..." aria-label="Search" aria-describedby="search-addon" />
+        <button type="submit" class="btn btn-outline-danger">ARA</button>
+      </div>
+
+</form>
+<br><br>
+
+<ul class="list-group"> <!-- bootstrap list group -->
+    {% for article in articles  %}
+    <li class="list-group-item"><a href="article/{{article[0]}}">{{article[1]}}</a></li><!-- titlenin index'i 1 olduğu için onu döndürdük. -->
+    {% endfor %}
+    
+
+</ul>
+
+{% else  %}
+<div class ="alert alert-danger">Bu blokta henüz makale bulunmuyor...</div>
+{% endif %}
+
+
+{% endblock body %}

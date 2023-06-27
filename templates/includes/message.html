@@ -1,0 +1,11 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    
+    {% for category, message in messages %}
+    <div class="alert alert-{{category}}" role="alert">
+    {{message}}<!-- bu kısmı biz düzenledik -->
+    </div>
+    {% endfor %} <!-- bootstrap 4 alert kısmını oluşturduk  -->
+    
+  {% endif %}
+{% endwith %}<!-- message flashing -->

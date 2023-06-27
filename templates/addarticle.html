@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% from "includes/formhelpers.html" import render_field %} <!-- formu dahil etmemiz için formhelpers'ı dahil ettik. -->
+<h3>Makale Oluştur</h3>
+<hr>
+<form method=post>
+    
+      {{ render_field(form.title,class="form-control") }}<!-- form control ile kutuların boyunu uzattık -->
+      {{ render_field(form.content,class="form-control") }}
+      
+      <button type="submit" class="btn btn-primary">Makale Ekle</button>
+    
+  </form>
+
+{% endblock body %}
